@@ -1,0 +1,37 @@
+{
+  "name": "open-from-google-drive",
+  "version": "0.1.0",
+  "description": "open-handler for Google Drive Integration",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DrPaulBrewer/open-from-google-drive.git"
+  },
+  "keywords": [
+    "google-drive-api",
+    "google-drive-integration",
+    "open-file"
+  ],
+  "author": "drpaulbrewer@eaftc.com",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/DrPaulBrewer/open-from-google-drive/issues"
+  },
+  "homepage": "https://github.com/DrPaulBrewer/open-from-google-drive#readme",
+  "engines": {
+    "node": ">=8"
+  },
+  "peerDependencies": {
+    "googleapis": ">=36.0.0"
+  },
+  "dependencies": {
+    "decorated-google-drive": ">=4.3.1 <5",
+    "request": ">=2.88.0 <3"
+  },
+  "devDependencies": {
+    "eslint": "^5.12.0"
+  }
+}
