@@ -22,14 +22,14 @@
   },
   "homepage": "https://github.com/DrPaulBrewer/open-from-google-drive#readme",
   "engines": {
-    "node": ">=8"
+    "node": ">=12"
   },
   "peerDependencies": {
-    "googleapis": ">=36.0.0"
+    "googleapis": ">=54.0.0"
   },
   "dependencies": {
-    "decorated-google-drive": ">=4.3.1 <5",
-    "request": ">=2.88.0 <3"
+    "axios": "^0.19.2",
+    "decorated-google-drive": "^6.0.2"
   },
   "devDependencies": {
     "eslint": "^5.12.0"

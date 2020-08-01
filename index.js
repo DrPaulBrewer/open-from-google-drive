@@ -1,8 +1,8 @@
 const driveX = require('decorated-google-drive');
-const request = require('request');
+const axios = require('axios');
 
 module.exports = function (googleapis, googleCred) {
-  
+
   function preValidate(params){
     if (params && params.state && params.code && params.scope){
       if (typeof(params.state)==='string'){
@@ -28,7 +28,12 @@ module.exports = function (googleapis, googleCred) {
   async function open({params=null, fields='*', maxSize=0}){
     if (preValidate(params)){
       const tokens = await getTokens(params);
-      const drive = driveX(googleapis, request, googleCred, tokens);
+      const drive = driveX({
+        google: googleapis,
+        axios,
+        keys: googleCred,
+        tokens
+      });
       const r = {drive};
       const user = await drive.x.aboutMe();
       r.user = user;
@@ -36,7 +41,7 @@ module.exports = function (googleapis, googleCred) {
       const fileId = (state.ids && state.ids[0]) || state.id;
       const fileResponse = await drive.files.get({fileId, fields});
       r.file = fileResponse && fileResponse.data;
-      if ((+maxSize > 0) && 
+      if ((+maxSize > 0) &&
         (r.file && r.file.size) &&
         (+(r.file.size) <= +maxSize )){
           r.contents = await drive.x.contents(fileId);
