@@ -28,7 +28,7 @@
     "googleapis": ">=54.0.0"
   },
   "dependencies": {
-    "axios": "^0.19.2",
+    "axios": "^0.20.0",
     "decorated-google-drive": "^6.0.2"
   },
   "devDependencies": {
